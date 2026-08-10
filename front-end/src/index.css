@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    @apply h-full;
+  }
+  body {
+    @apply bg-cloud-50 text-slate-700 antialiased;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  ::selection {
+    @apply bg-brand-200 text-brand-700;
+  }
+  /* Thin, friendly scrollbars */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #e4defc; border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #d0c5fb; }
+}
+
+@layer components {
+  /* ---------- Buttons ---------- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+           bg-gradient-to-r from-brand-500 to-blush-500 text-white text-sm font-medium
+           shadow-soft hover:shadow-md hover:-translate-y-0.5 active:translate-y-0
+           transition-all duration-200 disabled:opacity-50 disabled:hover:translate-y-0;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+           bg-white border border-slate-200 text-slate-600 text-sm font-medium
+           hover:bg-slate-50 hover:border-slate-300 transition-all duration-200
+           disabled:opacity-50;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+           bg-rose-500 text-white text-sm font-medium hover:bg-rose-600
+           transition-all duration-200 disabled:opacity-50;
+  }
+  .btn-success {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+           bg-emerald-500 text-white text-sm font-medium hover:bg-emerald-600
+           transition-all duration-200 disabled:opacity-50;
+  }
+
+  /* ---------- Surfaces ---------- */
+  .card {
+    @apply bg-white rounded-3xl border border-slate-100 shadow-softer;
+  }
+
+  /* ---------- Forms ---------- */
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white
+           text-sm text-slate-700 placeholder-slate-400 outline-none
+           focus:ring-2 focus:ring-brand-200 focus:border-brand-400
+           transition-all duration-150;
+  }
+  .label {
+    @apply block text-sm font-medium text-slate-600 mb-1.5;
+  }
+  .error-text {
+    @apply text-xs text-rose-500 mt-1;
+  }
+
+  /* ---------- Badges ---------- */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-medium;
+  }
+  .badge-blue   { @apply bg-blue-50 text-blue-600; }
+  .badge-green  { @apply bg-emerald-50 text-emerald-600; }
+  .badge-amber  { @apply bg-amber-50 text-amber-600; }
+  .badge-rose   { @apply bg-rose-50 text-rose-600; }
+  .badge-violet { @apply bg-violet-50 text-violet-600; }
+  .badge-slate  { @apply bg-slate-100 text-slate-500; }
+
+  /* ---------- Tables ---------- */
+  .table-th {
+    @apply px-4 py-3 text-left text-[11px] font-semibold text-slate-400
+           uppercase tracking-wider;
+  }
+  .table-td {
+    @apply px-4 py-3 text-sm text-slate-700 align-middle;
+  }
+  .table-row {
+    @apply border-b border-slate-50 last:border-0 hover:bg-brand-50/40
+           transition-colors duration-150;
+  }
+}
